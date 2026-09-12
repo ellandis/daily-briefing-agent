@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head><title>Daily Briefing</title></head>
+<body>
+<h1>Daily Briefing</h1>
+<p>{{ briefing }}</p>
+
+<h2>Weather</h2>
+<p>{{ weather.city }}: {{ weather.current_temp_f }}F, high {{ weather.high_f }}F / low {{ weather.low_f }}F</p>
+
+<h2>Hacker News</h2>
+<ul>
+    {% for story in hn_stories %}
+    <li><a href="{{ story.url }}">{{ story.title }}</a> ({{ story.points }} points)</li>
+    {% endfor %}
+</ul>
+
+<h2>GitHub Trending</h2>
+<ul>
+    {% for repo in trending %}
+    <li><a href="{{ repo.url }}">{{ repo.name }}</a> — {{ repo.description }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
